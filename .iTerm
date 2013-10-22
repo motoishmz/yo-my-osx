@@ -1,0 +1,2 @@
+# kill hotkey window fade animation
+defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.0
