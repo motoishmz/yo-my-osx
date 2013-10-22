@@ -1,2 +1,12 @@
 # kill hotkey window fade animation
 defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.0
+
+# Ricty font
+git clone https://github.com/yascentur/Ricty.git
+cd Ricty
+brew install fontforge
+wget http://levien.com/type/myfonts/Inconsolata.otf
+# w3m http://mix-mplus-ipa.sourceforge.jp/download.html (`Migu 1M`をダウンロードします｡)
+unzip migu-1m-20120411-2.zip 
+sh ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf
+cp -f Ricty*.ttf ~/Library/fonts
