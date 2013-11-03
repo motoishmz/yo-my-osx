@@ -1,0 +1,4 @@
+# no more full-width space!
+
+defaults write com.apple.inputmethod.Kotoeri zhsy -dict-add " " -bool no
+killall Kotoeri
