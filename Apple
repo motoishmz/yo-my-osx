@@ -1,4 +1,12 @@
 # no more full-width space!
-
 defaults write com.apple.inputmethod.Kotoeri zhsy -dict-add " " -bool no
 killall Kotoeri
+
+# changing screenshot save path
+# !default save path
+# defaults write com.apple.screencapture location 
+defaults write com.apple.screencapture location ~/Downloads
+killall SystemUIServer
+
+
+
