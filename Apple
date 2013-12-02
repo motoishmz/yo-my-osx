@@ -9,4 +9,5 @@ defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
 
 
-
+# screen shot file name prefix
+defaults write com.apple.screencapture name ""
