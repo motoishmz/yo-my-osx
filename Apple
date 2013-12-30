@@ -10,4 +10,4 @@ killall SystemUIServer
 
 
 # screen shot file name prefix
-defaults write com.apple.screencapture name ""
+defaults write com.apple.screencapture name "S"
