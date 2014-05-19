@@ -11,3 +11,6 @@ killall SystemUIServer
 
 # screen shot file name prefix
 defaults write com.apple.screencapture name "S"
+
+# disable AppNap
+defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
