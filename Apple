@@ -1,16 +1,32 @@
-# no more full-width space!
+
+# locate database initialization
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
+
+# show hidden files
+defaults write com.apple.finder AppleShowAllFiles -boolean true
+killall Finder
+
+
+# AppNap deactivation
+defaults write NSGlobalDomain NSAppSleepDisabled -bool yes
+
+
+# Dashboard deactivation
+defaults write com.apple.dashboard mcx-disabled -boolean true
+
+
+# (for japanese) Full-width space deactivation
+＃!!!: it works on lt Marveriks. For Yosemite user: https://discussionsjapan.apple.com/thread/10153312
 defaults write com.apple.inputmethod.Kotoeri zhsy -dict-add " " -bool no
-killall Kotoeri
+# killall Kotoeri
+
 
 # changing screenshot save path
 # !default save path
 # defaults write com.apple.screencapture location 
-defaults write com.apple.screencapture location ~/Downloads
+defaults write com.apple.screencapture location ~/Capture
 killall SystemUIServer
-
 
 # screen shot file name prefix
 defaults write com.apple.screencapture name "S"
-
-# disable AppNap
-defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
