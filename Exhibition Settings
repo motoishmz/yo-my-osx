@@ -1,6 +1,5 @@
-# power management settings (wip 2014-12-03)
-
-#This command sets displaysleep to a 5 minute timer on battery power, leaving other settings on battery
-#power and other power sources unperturbed.
-
-pmset -b displaysleep 5
+# power management settings
+sudo pmset standbydelay 0
+sudo pmset autopoweroffdelay 0 
+sudo pmset sleep 0
+sudo pmset displaysleep 0
