@@ -3,3 +3,6 @@ sudo pmset standbydelay 0
 sudo pmset autopoweroffdelay 0 
 sudo pmset sleep 0
 sudo pmset displaysleep 0
+
+# disable java update               
+sudo defaults write /Library/Preferences/com.oracle.java.Java-Updater JavaAutoUpdateEnabled -bool false                                                                                           
