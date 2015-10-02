@@ -17,8 +17,10 @@ defaults write com.apple.dashboard mcx-disabled -boolean true
 
 
 # (for japanese) Full-width space deactivation
-＃!!!: it works on lt Marveriks. For Yosemite user: https://discussionsjapan.apple.com/thread/10153312
-defaults write com.apple.inputmethod.Kotoeri zhsy -dict-add " " -bool no
+# For Yosemite user: https://discussionsjapan.apple.com/thread/10153312
+# For El Capitan uesr: http://kotonohatrans.hatenablog.com/entry/2015/09/23/010147
+# 	Safe mode log-in (reboot + Cmd-R) --> Utilities > Terminal --> $ csrutil disable --> $ reboot
+defaults write com.apple.inputmethod.Kotoeri zhsy -dict-add " " -bool no ＃!!!: it works on lt Marveriks. 
 # killall Kotoeri
 
 
