@@ -1,0 +1,82 @@
+# Desktopを黒に
+echo "Change Desctop Pictures"
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Library/Desktop Pictures/Solid Colors/Solid Gray Pro Ultra Dark.png"'
+
+
+# ScreenSaver Kill
+echo "Disable screensaver"
+defaults write com.apple.screensaver idleTime -int 0
+defaults -currentHost write com.apple.screensaver idleTime -int 0
+
+
+# Dockの中身を SystemPreferences, Terminal, ActivityMonitor のみにする
+echo "Copy ~/Library/Preferences/com.apple.dock.plist"
+cd `dirname $0`
+sudo cp com.apple.dock.plist ~/Library/Preferences/com.apple.dock.plist
+
+
+# Display作業スペース分割OFF
+echo "Displays have separate Spaces"
+defaults write com.apple.spaces spans-displays -bool FALSE
+
+
+# Notifications
+echo "Disable Notification center."
+launchctl unload /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+
+
+# Energy Saver
+echo "Disable system sleep"
+sudo pmset sleep 0
+
+echo "Disable display sleep"
+sudo pmset displaysleep 0
+
+echo "Enable wake on ethernet"
+sudo pmset womp 1
+
+
+# User & Groups
+echo "Setup auto login."
+sudo defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser $(whoami)
+
+
+# App Store
+echo "Disable : SystemPreferences -> AppStore -> Automatically check for updates"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool FALSE
+
+
+# Dashboard
+echo "Disable dashboard"
+defaults write com.apple.dashboard mcx-disabled -boolean YES
+
+
+# network上に.DS_Store作らない
+echo "Avoid creating .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
+
+
+# 拡張子変更時のwarningを出さない
+echo "Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool FALSE
+
+
+# 未承認のアプリも右クリックなく開ける
+echo "Disable Warning on opening new App."
+spctl --master-disable
+
+
+# 起動時のクラッシュワーニングを出さない
+echo "Disable crash working on application start."
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool FALSE
+
+
+# ウィンドウ復元無効化
+echo "Disable resume on start"
+defaults write -g ApplePersistenceIgnoreState YES
+
+
+# クラッシュレポーター出さない
+echo "Disable crash reporter"
+defaults write com.apple.CrashReporter DialogType none
+defaults write com.apple.CrashReporter UseUNC 1

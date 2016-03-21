@@ -1,0 +1,4 @@
+chmod 644 tokyo.backspace.plist
+cp tokyo.backspace.plist ~/Library/LaunchAgents
+launchctl unload ~/Library/LaunchAgents/tokyo.backspace.plist
+launchctl load ~/Library/LaunchAgents/tokyo.backspace.plist
